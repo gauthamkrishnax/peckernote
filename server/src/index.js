@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 
 require("dotenv").config();
+var cors = require("cors");
 
 const db = require("./db");
 
@@ -11,18 +12,16 @@ const DB_HOST = process.env.DB_HOST;
 
 db.connect(DB_HOST);
 
+app.use(cors());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 app.get("/", (req, res) => {
-	res.send("Hello World!");
+	res.json({ message: "You are now connected with PeckerNote API." });
 });
 
-app.post("/addNote", async (req, res) => {
-	console.log(req.body);
-	res.send("Note saved !");
-});
+require("./app")(app);
 
 app.listen(port, () => {
-	console.log(`App listening at http://localhost:${port}`);
+	console.log(`\nApp listening at http://localhost:${port}`);
 });
