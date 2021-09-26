@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { useEffect, useState } from "react";
 
-export default function Home() {
+export default function UserProfile() {
 	const [notes, setNotes] = useState(null);
 
 	const [inputValue, setInputValue] = useState("");
