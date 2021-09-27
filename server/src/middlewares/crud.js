@@ -1,3 +1,20 @@
+//Mongo - User Document
+
+// USER - {
+// 	_id: mongo.Object.ID()
+// 	username: String, // Google Given Name
+// 	userID: String, // Google ID
+// 	picture: String // Google Avatar
+// 	notes: [NOTE] // Note Schema
+// }
+
+// NOTE - {
+//	_id: Object.ID()
+// 	title: String,
+// 	content: String
+//	timeStamp
+// }
+
 const User = require("../schema/user");
 
 // Retrieve and return all notes from the database.

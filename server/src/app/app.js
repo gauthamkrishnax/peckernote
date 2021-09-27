@@ -1,6 +1,10 @@
+//Important App Fuction Routes :
+
 module.exports = (app) => {
+	//CRUD Operation functions.
 	const notes = require("../middlewares/crud");
 
+	//Check if user is logged in.
 	const isLoggedIn = (req, res, next) => {
 		if (req.user) {
 			next();
@@ -8,6 +12,7 @@ module.exports = (app) => {
 			res.send({ auth: null });
 		}
 	};
+
 	//CRUD
 
 	// Create a new Note

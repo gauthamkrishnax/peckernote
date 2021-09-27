@@ -13,6 +13,7 @@ module.exports = {
 		});
 	},
 
+	//Not used
 	close: () => {
 		mongoose.connect.close();
 	},

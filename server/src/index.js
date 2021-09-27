@@ -16,7 +16,7 @@ const app = express();
 //EXPRESS MIDDLEWARES
 
 app.use(helmet());
-app.use(cors());
+app.use(cors()); // Add orgin domain later
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
@@ -37,14 +37,14 @@ app.use(
 		}),
 		resave: false,
 		saveUninitialized: true,
-		cookie: { maxAge: 1000 * 60 * 60 * 24 * 3 }, // 3 days
+		cookie: { maxAge: 1000 * 60 * 60 * 24 * 3 }, // 3 days until user cookies are unset
 	})
 );
 
 app.use(passport.initialize());
 app.use(passport.session());
 
-require("./middlewares/authentication");
+require("./middlewares/authentication"); //Passport.js Authentication Strategy - Google OAuth2
 
 //API ROUTES
 
