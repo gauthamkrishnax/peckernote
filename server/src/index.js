@@ -45,8 +45,12 @@ app.use(passport.session());
 
 require("./middlewares/authentication");
 
+//API ROUTES
+
+// require("./app")(app);
+
 app.get("/", (req, res) => {
-	res.send(req.json());
+	res.send(req.user);
 });
 
 app.get(
@@ -56,10 +60,6 @@ app.get(
 		res.redirect("/");
 	}
 );
-
-//API ROUTES
-
-// require("./app")(app);
 
 // SERVER
 
