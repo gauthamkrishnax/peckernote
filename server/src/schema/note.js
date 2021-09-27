@@ -5,10 +5,6 @@ const noteSchema = new mongoose.Schema(
 		title: {
 			type: String,
 		},
-		order: {
-			type: Number,
-			required: true,
-		},
 		content: {
 			type: String,
 			required: true,

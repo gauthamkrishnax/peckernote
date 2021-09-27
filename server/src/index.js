@@ -5,13 +5,13 @@ var session = require("express-session");
 const MongoStore = require("connect-mongo");
 var passport = require("passport");
 
+//ENVIRONMENTAL VARIABLES
 require("dotenv").config();
-
-const db = require("./middlewares/db");
-
-const app = express();
 const port = process.env.PORT || 3000;
 const DB_HOST = process.env.DB_HOST;
+const SECRET_KEY_SESSION = process.env.SECRET_KEY_SESSION;
+
+const app = express();
 
 //EXPRESS MIDDLEWARES
 
@@ -22,13 +22,14 @@ app.use(express.json());
 
 //DATABASE CONNECTION
 
-const conn = db.connect(DB_HOST);
+const db = require("./middlewares/db");
+db.connect(DB_HOST);
 
 //SESSION MIDDLEWARES
 
 app.use(
 	session({
-		secret: process.env.SECRET_KEY_SESSION,
+		secret: SECRET_KEY_SESSION,
 		store: MongoStore.create({
 			mongoUrl: DB_HOST,
 			dbName: "sessions",
@@ -47,19 +48,8 @@ require("./middlewares/authentication");
 
 //API ROUTES
 
-// require("./app")(app);
-
-app.get("/", (req, res) => {
-	res.send(req.user);
-});
-
-app.get(
-	"/google/callback",
-	passport.authenticate("google", { scope: ["Profile"] }),
-	function (req, res) {
-		res.redirect("/");
-	}
-);
+require("./app/authRoutes")(app);
+require("./app/app")(app);
 
 // SERVER
 

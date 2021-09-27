@@ -2,12 +2,21 @@ var passport = require("passport");
 var GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
 require("dotenv").config();
 
+var User = require("../schema/user");
+
 passport.serializeUser(function (user, done) {
-	done(null, user);
+	console.log(user);
+	done(null, user.id);
 });
 
-passport.deserializeUser(function (user, done) {
-	done(null, user);
+passport.deserializeUser(function (id, done) {
+	User.findById(id)
+		.then((user) => {
+			done(null, user);
+		})
+		.catch((err) => {
+			done(err);
+		});
 });
 
 passport.use(
@@ -18,8 +27,37 @@ passport.use(
 			callbackURL: "http://localhost:5000/google/callback",
 		},
 		function (acessToken, refreshToken, profile, done) {
-			console.log("Authenticated");
-			return done(null, profile);
+			User.find({ userID: profile.id }, function (err, user) {
+				if (err) {
+					res.status(500).send({
+						message:
+							err.message +
+							": \nSome error occurred while fetching your account",
+					});
+				}
+				if (user.length) {
+					return done(err, user);
+				} else {
+					const newUser = new User({
+						userID: profile.id,
+						username: profile.name.givenName,
+						picture: profile.photos[0].value,
+						notes: [],
+					});
+					newUser
+						.save()
+						.then((user) => {
+							return done(err, user);
+						})
+						.catch((err) => {
+							res.status(500).send({
+								message:
+									err.message +
+									": \nSome error occurred while creating your account",
+							});
+						});
+				}
+			});
 		}
 	)
 );
