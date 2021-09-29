@@ -15,14 +15,23 @@ const app = express();
 
 //EXPRESS MIDDLEWARES
 
-app.use(helmet());
-app.use(
-	cors({
-		orgin: "http://localhost:3000",
-		optionsSuccessStatus: 200,
-		credentials: true,
-	})
-); // Add orgin domain later
+// app.use(helmet());
+// app.use(
+// 	cors({
+// 		orgin: "http://localhost:3000",
+// 		optionsSuccessStatus: 200,
+// 		credentials: true,
+// 	})
+// ); // Add orgin domain later
+// app.use(cors());
+app.use(function (req, res, next) {
+	res.header("Access-Control-Allow-Origin", "http://localhost:3000");
+	res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+	res.header("Access-Control-Allow-Headers", "Content-Type, x-requested-with");
+	res.header("Access-Control-Allow-Credentials", true);
+	next();
+});
+
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 

@@ -48,8 +48,14 @@ exports.create = (req, res) => {
 			},
 		}
 	)
-		.then((data) => {
-			res.send({ done: true });
+		.then(() => {
+			User.findById(req.user._id, {})
+				.then((data) => {
+					res.send({ done: true, data });
+				})
+				.catch((err) => {
+					res.send({ error: err, message: "Error fetching Data !" });
+				});
 		})
 		.catch((err) => {
 			res.send({
@@ -90,7 +96,13 @@ exports.update = (req, res) => {
 					},
 				}
 			).then(() => {
-				res.send({ done: true });
+				User.findById(req.user._id, {})
+					.then((data) => {
+						res.send({ done: true, data });
+					})
+					.catch((err) => {
+						res.send({ error: err, message: "Error fetching Data !" });
+					});
 			});
 		})
 		.catch((err) => {
@@ -118,8 +130,14 @@ exports.delete = (req, res) => {
 			},
 		}
 	)
-		.then((data) => {
-			res.send({ done: true });
+		.then(() => {
+			User.findById(req.user._id, {})
+				.then((data) => {
+					res.send({ done: true, data });
+				})
+				.catch((err) => {
+					res.send({ error: err, message: "Error fetching Data !" });
+				});
 		})
 		.catch((err) => {
 			res.send({

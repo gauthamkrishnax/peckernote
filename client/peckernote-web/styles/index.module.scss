@@ -1,0 +1,143 @@
+@import '_variables.scss';
+
+.container {
+    display: flex;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1920px;
+    min-height: 100vh;
+
+}
+
+.main {
+    width: 100%;
+    padding: 4em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    article {
+        margin-bottom: 2em;
+
+        h1 {
+            font-family: $Display-font;
+            font-size: 4rem;
+            color: $color-dark-primary;
+        }
+
+        p {
+            margin-left: .2em;
+            margin-top: .6em;
+            max-width: 550px;
+            letter-spacing: 0.02rem;
+            font-size: 1.4rem;
+            color: $color-dark-secondary;
+        }
+    }
+
+    section {
+        padding-bottom: 4em;
+        margin-left: 1em;
+
+        h4 {
+            font-size: 1.8rem;
+            margin-bottom: .6em;
+            color: $color-dark-primary;
+        }
+
+        button {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            font-size: 1rem;
+            background-color: white;
+            border: none;
+            padding: 1em 3em;
+            letter-spacing: 00.03rem;
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
+                rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+            transition: .2s all ease-in;
+
+            &:hover {
+                background-color: #f8f8f8;
+                box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
+                    rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+            }
+
+            &:active {
+                box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
+                    rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+                transition: .2s all ease-in;
+                outline-width: 1px;
+                outline-offset: 2px;
+                outline: 1px solid rgba(0, 71, 254, 0.45);
+
+            }
+
+            span {
+                margin-left: 1em;
+            }
+        }
+    }
+
+    span {
+        color: $color-dark-secondary;
+    }
+}
+
+.illustration {
+    width: 100%;
+    max-width: 500px;
+    background-color: black;
+    background-color: rebeccapurple;
+    background-image: linear-gradient(45deg, black, black .5%,
+            gold .5%, gold 7.6%,
+            black 7.6%, black 8.642857143%,
+            darkorange 8.642857143%, darkorange 15.64285714%,
+            black 15.64285714%, black 16.88571429%,
+            crimson 16.88571429%, crimson 23.84285714%,
+            black 23.84285714%, black 25%,
+            transparent 25%),
+        linear-gradient(-45deg, black, black .5%,
+            gold .5%, gold 7.6%,
+            black 7.6%, black 8.642857143%,
+            darkorange 8.642857143%, darkorange 15.64285714%,
+            black 15.64285714%, black 16.88571429%,
+            crimson 16.88571429%, crimson 23.84285714%,
+            black 23.84285714%, black 25%,
+            transparent 25%),
+        linear-gradient(45deg, transparent 73.857142860%, black 73.857142860%, black 75%, transparent 75%),
+        linear-gradient(-45deg, transparent 73.857142860%, black 73.857142860%, black 75%, transparent 75%),
+
+        linear-gradient(45deg, transparent 66.857142860%, crimson 66.857142860%, crimson 73.857142860%, transparent 73.857142860%),
+        linear-gradient(-45deg, transparent 66.857142860%, crimson 66.857142860%, crimson 73.857142860%, transparent 73.857142860%),
+
+        linear-gradient(45deg, transparent 65.714285710%, black 65.714285710%, black 66.857142860%, transparent 66.857142860%),
+        linear-gradient(-45deg, transparent 65.714285710%, black 65.714285710%, black 66.857142860%, transparent 66.857142860%),
+
+        linear-gradient(45deg, transparent 58.714285710%, darkorange 58.714285710%, darkorange 65.714285710%, transparent 65.714285710%),
+        linear-gradient(-45deg, transparent 58.714285710%, darkorange 58.714285710%, darkorange 65.714285710%, transparent 65.714285710%),
+
+        linear-gradient(45deg, transparent 57.571428570%, black 57.571428570%, black 58.714285710%, transparent 58.714285710%),
+        linear-gradient(-45deg, transparent 57.571428570%, black 57.571428570%, black 58.714285710%, transparent 58.714285710%),
+
+        linear-gradient(45deg, transparent 50.571428570%, gold 50.571428570%, gold 57.571428570%, transparent 57.571428570%),
+        linear-gradient(-45deg, transparent 50.571428570%, gold 50.571428570%, gold 57.571428570%, transparent 57.571428570%),
+
+        linear-gradient(45deg, transparent 49.428571430%, black 49.428571430%, black 50.571428570%, transparent 50.571428570%),
+        linear-gradient(-45deg, transparent 49.428571430%, black 49.428571430%, black 50.571428570%, transparent 50.571428570%),
+
+        linear-gradient(45deg, transparent 42.428571430%, forestgreen 42.428571430%, forestgreen 49.428571430%, transparent 49.428571430%),
+        linear-gradient(-45deg, transparent 42.428571430%, forestgreen 42.428571430%, forestgreen 49.428571430%, transparent 49.428571430%),
+
+        linear-gradient(45deg, transparent 41.285714290%, black 41.285714290%, black 42.428571430%, transparent 42.428571430%),
+        linear-gradient(-45deg, transparent 41.285714290%, black 41.285714290%, black 42.428571430%, transparent 42.428571430%),
+
+        linear-gradient(45deg, transparent 34.285714290%, royalblue 34.285714290%, royalblue 41.285714290%, transparent 41.285714290%),
+        linear-gradient(-45deg, transparent 34.285714290%, royalblue 34.285714290%, royalblue 41.285714290%, transparent 41.285714290%),
+
+        linear-gradient(45deg, transparent 33.142857143%, black 33.142857143%, black 34.285714290%, transparent 34.285714290%),
+        linear-gradient(-45deg, transparent 33.142857143%, black 33.142857143%, black 34.285714290%, transparent 34.285714290%);
+    background-size: 100px 100px;
+    background-position: 0 0
+}
