@@ -5,21 +5,20 @@ require("dotenv").config();
 //User Schema With Notes Array.
 var User = require("../schema/user");
 
-//Initialise User ID into cookie after authentication
 passport.serializeUser(function (user, done) {
-	console.log(user);
-	done(null, user.id);
+	done(null, user.userID);
 });
 
-//Check User authorisation from cookie
 passport.deserializeUser(function (id, done) {
-	User.findById(id)
-		.then((user) => {
-			done(null, user);
-		})
-		.catch((err) => {
-			done(err);
-		});
+	User.find({ userID: id }, function (err, user) {
+		if (err) {
+			res.status(500).send({
+				message:
+					err.message + ": \nSome error occurred while fetching your account",
+			});
+		}
+		done(err, user[0]);
+	});
 });
 
 //Passport.js Auth Strategy
@@ -42,7 +41,7 @@ passport.use(
 				}
 				if (user.length) {
 					// If user already exists - Log In({ Supply User details })
-					return done(err, user);
+					return done(err, user[0]);
 				} else {
 					//Else add new user with empty Notes array
 					const newUser = new User({

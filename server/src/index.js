@@ -16,13 +16,20 @@ const app = express();
 //EXPRESS MIDDLEWARES
 
 app.use(helmet());
-app.use(cors()); // Add orgin domain later
+app.use(
+	cors({
+		orgin: "http://localhost:3000",
+		optionsSuccessStatus: 200,
+		credentials: true,
+	})
+); // Add orgin domain later
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 //DATABASE CONNECTION
 
 const db = require("./middlewares/db");
+// db.close();
 db.connect(DB_HOST);
 
 //SESSION MIDDLEWARES
