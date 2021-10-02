@@ -1,8 +1,10 @@
-import styles from "../styles/index.module.scss";
-import GoogleIcon from "../components/svg/GoogleIcon";
+import Head from "next/head";
 import Router from "next/router";
 import { useEffect, useState } from "react";
+
 import Loader from "../components/loader";
+import GoogleIcon from "../components/svg/GoogleIcon";
+import styles from "../styles/index.module.scss";
 
 const fetchData = async () => {
 	const res = await fetch(`http://localhost:5000/notes`, {
@@ -30,9 +32,23 @@ export default function UserProfile() {
 			});
 	}, []);
 	return showLoader ? (
-		<Loader />
+		<>
+			<Loader />
+			<Head>
+				<title>Loading</title>
+				<meta name="viewport" content="initial-scale=1.0, width=device-width" />
+				<meta
+					name="description"
+					content="Pecker Note is a simple note making Application for everyday needs. Use Peckernote to create and maintain notes easy and fast."
+				></meta>
+			</Head>
+		</>
 	) : (
 		<div className={styles.container}>
+			<Head>
+				<title>Pecker Note</title>
+				<meta name="viewport" content="initial-scale=1.0, width=device-width" />
+			</Head>
 			<main className={styles.main}>
 				<article>
 					<h1>Pecker Note</h1>

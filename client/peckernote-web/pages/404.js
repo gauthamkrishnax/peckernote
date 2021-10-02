@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Head from "next/head";
 import styles from "../styles/index.module.scss";
 
 import ArrowIcon from "../components/svg/ArrowIcon";
@@ -13,6 +14,10 @@ export default function UserProfile({ message = "404 Error 😬" }) {
 
 	return (
 		<div className={styles.container}>
+			<Head>
+				<title>Error</title>
+				<meta name="viewport" content="initial-scale=1.0, width=device-width" />
+			</Head>
 			<main className={styles.main}>
 				<article>
 					<h1>{message}</h1>

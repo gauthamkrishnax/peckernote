@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Router from "next/router";
 import { XMasonry, XBlock } from "react-xmasonry";
+import Head from "next/head";
 
 import styles from "../styles/profile.module.scss";
 
@@ -57,9 +58,19 @@ export default function UserProfile(props) {
 		return `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}-  ${hours}`;
 	}
 	return !data ? (
-		<Loader />
+		<>
+			<Loader />
+			<Head>
+				<title>Loading</title>
+				<meta name="viewport" content="initial-scale=1.0, width=device-width" />
+			</Head>
+		</>
 	) : data.userID ? (
 		<>
+			<Head>
+				<title>Pecker Note - {data.username}</title>
+				<meta name="viewport" content="initial-scale=1.0, width=device-width" />
+			</Head>
 			<NavBar name={data.username} picture={data.picture} />
 			<main className={styles.container}>
 				<div>
