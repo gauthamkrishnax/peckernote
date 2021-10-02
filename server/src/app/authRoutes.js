@@ -4,11 +4,7 @@ var cors = require("cors");
 //Auth Routes
 module.exports = (app) => {
 	//Register with google - SignUp Button Onclick Route
-	app.get(
-		"/google",
-		cors({ orgin: "*" }),
-		passport.authenticate("google", { scope: ["Profile"] })
-	);
+	app.get("/google", passport.authenticate("google", { scope: ["Profile"] }));
 
 	//Route After Authentication
 	app.get(
@@ -16,7 +12,7 @@ module.exports = (app) => {
 		passport.authenticate("google", { failureRedirect: "/authFail" }),
 		function (req, res) {
 			console.log("login Success");
-			res.redirect("https://peckernote.netlify.app/profile"); //https://peckernote.netlify.app/profile
+			res.redirect("http://localhost:3000"); //https://peckernote.netlify.app/profile
 		}
 	);
 
@@ -27,7 +23,6 @@ module.exports = (app) => {
 
 	//Logout button onClick Route
 	app.get("/logout", function (req, res) {
-		console.log("fail");
 		req.logout();
 		res.send({ authfail: true });
 	});
