@@ -2,7 +2,7 @@ import Head from "next/head";
 import Router from "next/router";
 import { useEffect, useState } from "react";
 
-import Loader from "../components/loader";
+import Loader from "../components/Loader";
 import GoogleIcon from "../components/svg/GoogleIcon";
 import styles from "../styles/index.module.scss";
 

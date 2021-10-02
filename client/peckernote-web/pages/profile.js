@@ -5,7 +5,7 @@ import Head from "next/head";
 
 import styles from "../styles/profile.module.scss";
 
-import Loader from "../components/loader";
+import Loader from "../components/Loader";
 import AddForm from "../components/AddForm";
 import DeleteNote from "../components/DeleteNote";
 import NavBar from "../components/Navbar";
