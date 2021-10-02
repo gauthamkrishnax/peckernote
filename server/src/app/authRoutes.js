@@ -12,7 +12,7 @@ module.exports = (app) => {
 		passport.authenticate("google", { failureRedirect: "/authFail" }),
 		function (req, res) {
 			console.log("login Success");
-			res.redirect("http://localhost:3000"); //https://peckernote.netlify.app/profile
+			res.redirect("https://peckernote.netlify.app/profile"); //https://peckernote.netlify.app/profile
 		}
 	);
 

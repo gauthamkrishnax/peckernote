@@ -7,10 +7,10 @@ module.exports = (app) => {
 	//Check if user is logged in.
 	const isLoggedIn = (req, res, next) => {
 		if (req.user) {
-			console.log(req);
+			console.log(req.user);
 			next();
 		} else {
-			console.log(req.isAuthenticated());
+			console.log(req.session);
 			res.send({ authfail: true }); //{ auth: null }
 		}
 	};

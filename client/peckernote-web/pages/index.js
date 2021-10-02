@@ -7,7 +7,7 @@ import GoogleIcon from "../components/svg/GoogleIcon";
 import styles from "../styles/index.module.scss";
 
 const fetchData = async () => {
-	const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/notes`, {
+	const res = await fetch(`http://localhost:5000/notes`, {
 		mode: "cors",
 		credentials: "include",
 	});
