@@ -15,7 +15,7 @@ module.exports = (app) => {
 		"/google/callback",
 		passport.authenticate("google", { failureRedirect: "/authFail" }),
 		function (req, res) {
-			res.redirect("http://localhost:3000/profile");
+			res.redirect("https://peckernote.netlify.app/profile");
 		}
 	);
 
