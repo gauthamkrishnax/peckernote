@@ -15,7 +15,8 @@ module.exports = (app) => {
 		"/google/callback",
 		passport.authenticate("google", { failureRedirect: "/authFail" }),
 		function (req, res) {
-			res.redirect("https://peckernote.netlify.app/profile");
+			console.log("login Success");
+			res.redirect("https://peckernote.netlify.app/profile"); //https://peckernote.netlify.app/profile
 		}
 	);
 
@@ -26,6 +27,7 @@ module.exports = (app) => {
 
 	//Logout button onClick Route
 	app.get("/logout", function (req, res) {
+		console.log("fail");
 		req.logout();
 		res.send({ authfail: true });
 	});

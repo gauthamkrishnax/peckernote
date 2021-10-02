@@ -9,6 +9,7 @@ module.exports = (app) => {
 		if (req.user) {
 			next();
 		} else {
+			console.log(req.isAuthenticated());
 			res.send({ authfail: true }); //{ auth: null }
 		}
 	};
