@@ -28,7 +28,7 @@ passport.use(
 		{
 			clientID: process.env.GOOGLE_CLIENT_ID,
 			clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-			callbackURL: "http://localhost:5000/google/callback", //Should change
+			callbackURL: "https://peckernote.netlify.app/profile", //Should change
 		},
 		function (acessToken, refreshToken, profile, done) {
 			User.find({ userID: profile.id }, function (err, user) {
