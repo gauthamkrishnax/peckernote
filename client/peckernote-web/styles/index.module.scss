@@ -16,6 +16,16 @@
     flex-direction: column;
     justify-content: space-between;
 
+    @include breakpoint(tablet) {
+        min-width: 70%;
+        padding: 5em;
+    }
+
+    @include breakpoint(phone) {
+        min-width: 80%;
+        padding: 2em;
+    }
+
     article {
         margin-bottom: 2em;
 
@@ -23,6 +33,11 @@
             font-family: $Display-font;
             font-size: 4rem;
             color: $color-dark-primary;
+
+            @include breakpoint(tablet) {
+                font-size: 3rem;
+            }
+
         }
 
         p {
@@ -32,6 +47,11 @@
             letter-spacing: 0.02rem;
             font-size: 1.4rem;
             color: $color-dark-secondary;
+
+            @include breakpoint(tablet) {
+                font-size: 1rem;
+            }
+
         }
     }
 
@@ -39,10 +59,18 @@
         padding-bottom: 4em;
         margin-left: 1em;
 
+        @include breakpoint(tablet) {
+            margin-left: 0;
+        }
+
         h4 {
             font-size: 1.8rem;
             margin-bottom: .6em;
             color: $color-dark-primary;
+
+            @include breakpoint(tablet) {
+                font-size: 1.2rem;
+            }
         }
 
         button {
@@ -57,6 +85,7 @@
             box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
                 rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
             transition: .2s all ease-in;
+
 
             &:hover {
                 background-color: #f8f8f8;
@@ -73,6 +102,11 @@
 
             }
 
+            @include breakpoint(tablet) {
+                padding: .5em 1em;
+                font-size: .8rem;
+            }
+
             span {
                 margin-left: 1em;
             }
@@ -81,6 +115,10 @@
 
     span {
         color: $color-dark-secondary;
+
+        @include breakpoint(tablet) {
+            font-size: .8rem;
+        }
     }
 }
 

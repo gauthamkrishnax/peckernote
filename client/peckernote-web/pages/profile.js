@@ -52,9 +52,9 @@ export default function UserProfile(props) {
 		let hours = date.getHours();
 		let minutes = date.getMinutes();
 		hours > 12
-			? (hours = `${hours - 12}:${minutes} PM`)
-			: (hours = `${hours}:${minutes} AM`);
-		return `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}-${hours}`;
+			? (hours = `${hours - 12}:${minutes}PM`)
+			: (hours = `${hours}:${minutes}AM`);
+		return `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}-  ${hours}`;
 	}
 	return !data ? (
 		<Loader />

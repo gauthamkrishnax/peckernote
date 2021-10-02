@@ -9,7 +9,7 @@ module.exports = (app) => {
 		if (req.user) {
 			next();
 		} else {
-			res.send({ req: "hi" }); //{ auth: null }
+			res.send({ authfail: true }); //{ auth: null }
 		}
 	};
 	//CRUD

@@ -10,5 +10,18 @@ $Display-font: "Work Sans",
 "san-serif";
 
 //Mixins
+@mixin breakpoint($point) {
+    @if $point==tablet {
+        @media only screen and (max-width: 1280px) {
+            @content;
+        }
+    }
+
+    @else if $point==phone {
+        @media only screen and (max-width: 700px) {
+            @content;
+        }
+    }
+}
 
 //ILLUSTRATION

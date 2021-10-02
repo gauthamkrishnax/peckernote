@@ -6,11 +6,16 @@
     z-index: 20;
     top: 5em;
     left: 0;
-    width: 100vw;
-    height: 100vh;
+    min-width: 100vw;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+
+    @include breakpoint(phone) {
+        position: absolute;
+        top: 4em;
+    }
 }
 
 .modalBackground {
@@ -37,6 +42,11 @@
     flex-direction: column;
     align-items: center;
 
+    @include breakpoint(phone) {
+        padding: 3em 1em 1em;
+        max-width: 325px;
+    }
+
     span {
         width: 100%;
         display: flex;
@@ -54,6 +64,10 @@
             border-radius: .5em;
             box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
                 rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+
+            @include breakpoint(phone) {
+                max-width: 220px;
+            }
         }
 
         textarea {
@@ -67,6 +81,11 @@
             border-radius: .5em;
             box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
                 rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+
+            @include breakpoint(phone) {
+                max-width: 220px;
+                max-height: 150px;
+            }
         }
     }
 
