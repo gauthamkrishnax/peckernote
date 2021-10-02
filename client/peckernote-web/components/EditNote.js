@@ -1,13 +1,13 @@
+import EditIcon from "./svg/EditIcon";
+import { motion } from "framer-motion";
+import { useState } from "react";
 import Router from "next/router";
 
-import { useState } from "react";
-import { motion } from "framer-motion";
-
-import styles from "../styles/AddForm.module.scss";
+import styles from "../styles/editNote.module.scss";
 
 const addNote = async (note) => {
 	const res = await fetch(`http://localhost:5000/note`, {
-		method: "POST",
+		method: "PUT",
 		mode: "cors",
 		credentials: "include",
 		headers: {
@@ -19,14 +19,14 @@ const addNote = async (note) => {
 	return data;
 };
 
-const AddForm = ({ formData, hideModal, noteModal }) => {
-	const [title, setTitle] = useState("");
-	const [content, setContent] = useState("");
+const AddForm = ({ note, formData, hideModal }) => {
+	const [title, setTitle] = useState(note.title);
+	const [content, setContent] = useState(note.content);
 
 	function handleSubmit(e) {
 		e.preventDefault();
 		// console.log({ title: title, content: content });
-		addNote({ title: title, content: content })
+		addNote({ _id: note._id, title: title, content: content })
 			.then((res) => {
 				hideModal(false);
 				// setIsOpen(false);
@@ -109,7 +109,7 @@ const AddForm = ({ formData, hideModal, noteModal }) => {
 				</span>
 
 				<div>
-					<input type="submit" value="Add Note" />
+					<input type="submit" value="Edit Note" />
 					<button onClick={(e) => animateAndHideModal(e)}>Cancel</button>
 				</div>
 			</motion.form>
@@ -124,4 +124,30 @@ const AddForm = ({ formData, hideModal, noteModal }) => {
 	);
 };
 
-export default AddForm;
+const EditNote = ({ note, afterDelete }) => {
+	const [noteModal, setNoteModal] = useState(false);
+	function handleClick() {
+		setNoteModal(true);
+	}
+	function setNoteModalfun(data) {
+		setNoteModal(data);
+	}
+
+	return (
+		<>
+			{noteModal && (
+				<AddForm
+					note={note}
+					formData={afterDelete}
+					hideModal={(data) => setNoteModalfun(data)}
+					noteModal={noteModal}
+				/>
+			)}
+			<button onClick={handleClick}>
+				<EditIcon /> <span>Edit</span>
+			</button>
+		</>
+	);
+};
+
+export default EditNote;

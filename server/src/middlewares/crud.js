@@ -24,7 +24,7 @@ exports.findAll = (req, res) => {
 			res.send(data);
 		})
 		.catch((err) => {
-			res.send({ error: err, message: "Error fetching Data !" });
+			res.send({ done: false, error: err, message: "Error fetching Data !" });
 		});
 };
 
@@ -54,7 +54,11 @@ exports.create = (req, res) => {
 					res.send({ done: true, data });
 				})
 				.catch((err) => {
-					res.send({ error: err, message: "Error fetching Data !" });
+					res.send({
+						done: false,
+						error: err,
+						message: "Error fetching Data !",
+					});
 				});
 		})
 		.catch((err) => {
@@ -101,7 +105,11 @@ exports.update = (req, res) => {
 						res.send({ done: true, data });
 					})
 					.catch((err) => {
-						res.send({ error: err, message: "Error fetching Data !" });
+						res.send({
+							done: false,
+							error: err,
+							message: "Error fetching Data !",
+						});
 					});
 			});
 		})
@@ -136,7 +144,11 @@ exports.delete = (req, res) => {
 					res.send({ done: true, data });
 				})
 				.catch((err) => {
-					res.send({ error: err, message: "Error fetching Data !" });
+					res.send({
+						done: false,
+						error: err,
+						message: "Error fetching Data !",
+					});
 				});
 		})
 		.catch((err) => {

@@ -21,12 +21,12 @@ module.exports = (app) => {
 
 	//Route if Authentication Fail
 	app.get("/authFail", function (req, res) {
-		res.send({ auth: null });
+		res.send({ authfail: true });
 	});
 
 	//Logout button onClick Route
 	app.get("/logout", function (req, res) {
 		req.logout();
-		res.send({ auth: null });
+		res.send({ authfail: true });
 	});
 };

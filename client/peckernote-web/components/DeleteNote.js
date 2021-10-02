@@ -1,3 +1,7 @@
+import Router from "next/router";
+
+import TrashIcon from "./svg/TrashIcon";
+
 const deleteNote = async (id) => {
 	const b = { _id: id };
 	const res = await fetch(`http://localhost:5000/note`, {
@@ -10,7 +14,6 @@ const deleteNote = async (id) => {
 		body: JSON.stringify(b), //prettier-ignore
 	});
 	const data = await res.json();
-	console.log(data);
 	return data;
 };
 
@@ -21,11 +24,17 @@ const DeleteNote = ({ id, afterDelete }) => {
 				afterDelete(res.data);
 			})
 			.catch((e) => {
-				console.log(e);
+				Router.push("/404");
+				console.error(e);
 			});
 	}
 
-	return <button onClick={handleClick}>Delete</button>;
+	return (
+		<button onClick={handleClick}>
+			<TrashIcon />
+			<span>Delete</span>
+		</button>
+	);
 };
 
 export default DeleteNote;

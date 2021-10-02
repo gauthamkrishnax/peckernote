@@ -17,3 +17,50 @@ a {
 * {
   box-sizing: border-box;
 }
+
+button {
+  transition: .2s all ease-in;
+}
+
+//Mansory Animation
+
+@keyframes comeIn {
+  0% {
+    transform: scale(0)
+  }
+
+  75% {
+    transform: scale(1.03)
+  }
+
+  100% {
+    transform: scale(1)
+  }
+}
+
+.xmasonry .xblock {
+  animation: comeIn ease 0.5s;
+  animation-iteration-count: 1;
+  transition: left .3s ease, top .3s ease;
+}
+
+a#goBackHome {
+  display: flex;
+  align-items: center;
+
+  svg {
+    margin-right: .5em;
+  }
+
+  font-size: 3rem;
+
+  &:hover {
+    color: $color-dark-secondary;
+
+    svg {
+      path {
+        fill: $color-dark-secondary;
+      }
+    }
+  }
+}
