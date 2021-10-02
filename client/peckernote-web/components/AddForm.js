@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import styles from "../styles/AddForm.module.scss";
 
 const addNote = async (note) => {
-	const res = await fetch(`http://localhost:5000/note`, {
+	const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/note`, {
 		method: "POST",
 		mode: "cors",
 		credentials: "include",

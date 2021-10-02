@@ -15,7 +15,7 @@ import { AnimatePresence } from "framer-motion";
 import EditNote from "../components/EditNote";
 
 const fetchData = async () => {
-	const res = await fetch(`http://localhost:5000/notes`, {
+	const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/notes`, {
 		mode: "cors",
 		credentials: "include",
 	});

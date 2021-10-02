@@ -7,7 +7,7 @@ import GoogleIcon from "../components/svg/GoogleIcon";
 import styles from "../styles/index.module.scss";
 
 const fetchData = async () => {
-	const res = await fetch(`http://localhost:5000/notes`, {
+	const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/notes`, {
 		mode: "cors",
 		credentials: "include",
 	});
@@ -59,7 +59,7 @@ export default function UserProfile() {
 				</article>
 				<section>
 					<h4>Sign In / Sign Up</h4>
-					<a href="http://localhost:5000/google">
+					<a href={`${process.env.NEXT_PUBLIC_SERVER_URL}/google`}>
 						<button tabIndex="-1">
 							<GoogleIcon />
 							<span>Sign in with Google</span>

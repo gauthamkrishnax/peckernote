@@ -6,7 +6,7 @@ import Router from "next/router";
 import styles from "../styles/editNote.module.scss";
 
 const addNote = async (note) => {
-	const res = await fetch(`http://localhost:5000/note`, {
+	const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/note`, {
 		method: "PUT",
 		mode: "cors",
 		credentials: "include",

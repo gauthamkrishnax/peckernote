@@ -4,7 +4,7 @@ import TrashIcon from "./svg/TrashIcon";
 
 const deleteNote = async (id) => {
 	const b = { _id: id };
-	const res = await fetch(`http://localhost:5000/note`, {
+	const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/note`, {
 		method: "DELETE",
 		mode: "cors",
 		credentials: "include",
