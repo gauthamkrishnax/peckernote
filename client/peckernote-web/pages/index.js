@@ -59,7 +59,7 @@ export default function UserProfile() {
 				</article>
 				<section>
 					<h4>Sign In / Sign Up</h4>
-					<a href={`${process.env.NEXT_PUBLIC_SERVER_URL}/google`}>
+					<a href={`http://localhost:5000/google`}>
 						<button tabIndex="-1">
 							<GoogleIcon />
 							<span>Sign in with Google</span>
