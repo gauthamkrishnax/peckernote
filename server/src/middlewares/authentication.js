@@ -28,7 +28,7 @@ passport.use(
 		{
 			clientID: process.env.GOOGLE_CLIENT_ID,
 			clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-			callbackURL: "http://localhost:5000/google/callback", //https://peckernote.herokuapp.com/google/callback
+			callbackURL: "https://peckernote.herokuapp.com/google/callback", //https://peckernote.herokuapp.com/google/callback
 		},
 		function (acessToken, refreshToken, profile, done) {
 			User.find({ userID: profile.id }, function (err, user) {
