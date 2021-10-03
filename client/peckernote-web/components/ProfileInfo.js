@@ -4,7 +4,7 @@ import styles from "../styles/Navbar.module.scss";
 
 const ProfileInfo = () => {
 	const fetchData = async () => {
-		const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/logout`, {
+		const res = await fetch(`https://peckernote.herokuapp.com/logout`, {
 			mode: "cors",
 			credentials: "include",
 		});
